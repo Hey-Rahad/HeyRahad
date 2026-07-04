@@ -6,21 +6,39 @@
     <title>Hey Rahad | Official</title>
     <style>
         body { background-color: #0f172a; color: #f8fafc; font-family: 'Segoe UI', sans-serif; margin: 0; }
-        nav { display: flex; justify-content: space-between; padding: 20px 50px; background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); }
         
-        /* এখানে ব্র্যান্ড লোগোর নতুন ডিজাইন */
+        nav { 
+            display: flex; 
+            flex-wrap: wrap; /* ছোট স্ক্রিনে মেনু নিচে নেমে আসবে */
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px; 
+            background: rgba(30, 41, 59, 0.8); 
+        }
+        
         .logo { 
             font-weight: 800; 
-            font-size: 1.8rem; 
+            font-size: 1.5rem; 
             color: #38bdf8; 
             text-transform: uppercase; 
-            letter-spacing: 2px; 
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5); 
+            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
-        .menu a { color: #94a3b8; text-decoration: none; margin-left: 20px; transition: 0.3s; }
-        .menu a:hover { color: #ffffff; }
-        .content { text-align: center; margin-top: 100px; }
+        .menu { display: flex; gap: 15px; } /* মেনুর মাঝে জায়গা বাড়ানো */
+        
+        .menu a { 
+            color: #ffffff; 
+            text-decoration: none; 
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.1); /* মেনু বাটনগুলোকে ক্লিকের উপযোগী করা */
+            border-radius: 5px;
+        }
+
+        .menu a:hover { background: #38bdf8; }
+        
+        .content { text-align: center; margin-top: 50px; }
     </style>
 </head>
 <body>
