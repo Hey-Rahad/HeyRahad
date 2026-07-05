@@ -1,18 +1,18 @@
-// ডার্ক মোড টগল করার ফাংশন
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    // মোড সেভ করে রাখার জন্য লোকাল স্টোরেজ
-    if (document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
-    } else {
-        localStorage.setItem('theme', 'light');
-    }
-}
-
-// পেজ লোড হওয়ার সময় আগের থিম চেক করা
 document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+    // ১. চাঁদের আইকন খুঁজে বের করা
+    const moonIcon = document.querySelector('.fa-moon');
+    
+    // ২. যদি চাঁদ আইকন পায়, তবে ক্লিক ফাংশন সেট করে দেওয়া
+    if (moonIcon) {
+        moonIcon.style.cursor = 'pointer';
+        moonIcon.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+    }
+
+    // ৩. আগের মোড লোড করা
+    if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
     }
 });
