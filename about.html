@@ -6,55 +6,37 @@
     <title>About | Maimul Islam Rahad</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: 0.3s; }
         body { background-color: #030712; color: #f8fafc; font-family: 'Segoe UI', sans-serif; padding-bottom: 90px; line-height: 1.6; }
         
-        /* টপ হেডার */
-        header { display: flex; align-items: center; padding: 20px; background-color: #030712; border-bottom: 1px solid #1e293b; }
+        /* ডার্ক মোড স্টাইল */
+        .dark-mode { background-color: #ffffff; color: #030712; }
+        .dark-mode header, .dark-mode .bottom-navigation, .dark-mode .story-box { background-color: #f1f5f9; border-color: #cbd5e1; }
+        .dark-mode h1, .dark-mode p { color: #0f172a; }
+
+        header { display: flex; align-items: center; padding: 20px; border-bottom: 1px solid #1e293b; }
         .back-btn { font-size: 1.2rem; color: #94a3b8; cursor: pointer; margin-right: 15px; }
-        .logo { font-weight: 700; font-size: 1.2rem; color: #ffffff; }
+        .logo { font-weight: 700; font-size: 1.2rem; }
+        .theme-toggle { margin-left: auto; cursor: pointer; font-size: 1.2rem; }
 
-        /* হিরো সেকশন */
         .hero { text-align: center; padding: 40px 20px; }
-        .hero h1 { font-size: 2rem; margin-bottom: 10px; color: #38bdf8; }
-        .hero p { color: #94a3b8; font-style: italic; }
+        .hero h1 { color: #38bdf8; }
+        .story-box { background: #0f172a; padding: 25px; border-radius: 15px; border-left: 4px solid #38bdf8; margin: 0 20px 20px 20px; }
+        
+        .social-container { display: flex; flex-direction: column; gap: 10px; padding: 0 20px; }
+        .social-link { background: #1e293b; color: #fff; padding: 12px; text-align: center; text-decoration: none; border-radius: 8px; }
 
-        /* মূল কন্টেন্ট */
-        .content { padding: 0 20px 40px 20px; }
-        .story-box { background: #0f172a; padding: 25px; border-radius: 15px; border-left: 4px solid #38bdf8; margin-bottom: 20px; }
-        .story-box p { margin-bottom: 20px; color: #e2e8f0; font-size: 1.05rem; }
-
-        /* সোশ্যাল বাটন স্টাইল */
-        .social-container { display: flex; flex-direction: column; gap: 10px; }
-        .social-link { background: #1e293b; color: #fff; padding: 12px; text-align: center; text-decoration: none; border-radius: 8px; font-weight: 600; transition: 0.3s; }
-        .social-link:hover { background: #38bdf8; color: #000; }
-
-        /* বটম ন্যাভিগেশন */
-        .bottom-navigation {
-            position: fixed; bottom: 0; left: 0; width: 100%; background-color: #090d16;
-            border-top: 1px solid #1e293b; display: flex; justify-content: space-around; padding: 12px 0;
-        }
-        .nav-item { text-align: center; color: #64748b; text-decoration: none; font-size: 0.75rem; display: flex; flex-direction: column; gap: 4px; }
+        .bottom-navigation { position: fixed; bottom: 0; left: 0; width: 100%; background-color: #090d16; border-top: 1px solid #1e293b; display: flex; justify-content: space-around; padding: 12px 0; }
+        .nav-item { text-align: center; color: #64748b; text-decoration: none; font-size: 0.75rem; display: flex; flex-direction: column; }
         .nav-item.active { color: #38bdf8; }
     </style>
-    /* ডার্ক মোড ক্লাস */
-.dark-mode {
-    background-color: #ffffff;
-    color: #030712;
-}
-.dark-mode header, .dark-mode .bottom-navigation, .dark-mode .section-box {
-    background-color: #f1f5f9;
-    border-color: #cbd5e1;
-}
-.dark-mode h1, .dark-mode h2, .dark-mode h3 { color: #0f172a; }
-.dark-mode p { color: #475569; }
-
 </head>
 <body>
 
     <header>
         <i class="fa-solid fa-arrow-left back-btn" onclick="history.back()"></i>
         <div class="logo">Hey Rahad</div>
+        <i class="fa-solid fa-moon theme-toggle" onclick="toggleDarkMode()"></i>
     </header>
 
     <div class="hero">
@@ -62,36 +44,33 @@
         <p>Digital Learner & Storyteller</p>
     </div>
 
-    <div class="content">
-        <div class="story-box">
-            <p>আমি মাইনুল ইসলাম রাহাদ। একসময় আমার মনে হতো, পৃথিবীটা হয়তো অনেক দূরে, আর আমি অনেক পিছিয়ে। কিন্তু আমি বুঝতে পেরেছি, পিছিয়ে থাকা আর সামনের দিকে এগিয়ে যাওয়ার মাঝখানের দূরত্বটা কেবল ইচ্ছাশক্তির।</p>
-            <p>আমি বিশ্বাস করি, আমরা প্রত্যেকেই ভেতরে ভেতরে কিছু একটা করার স্বপ্ন দেখি, কিন্তু সঠিক দিকনির্দেশনা বা শুরুর ভয়ের কারণে আমরা অনেক সময় থমকে যাই। আমার এই ওয়েবসাইট বা 'Smart Canvas' কোনো সাধারণ পোর্টফোলিও নয়—এটি আমার সেই সব লড়াই, ভুল থেকে শিক্ষা নেওয়া, আর প্রতিদিন নিজেকে একটু একটু করে বদলে ফেলার এক অগোছালো কিন্তু সত্য গল্প।</p>
-            <p>আমি যখন নতুন কিছু শিখি, যখন ব্যর্থ হই, কিংবা যখন কোনো একটা ছোট সমস্যার সমাধান করি—সেই অনুভূতিগুলোই আমি আপনাদের সাথে শেয়ার করি। আমি আপনাদের শেখাতে আসিনি, আমি বরং আপনাদের বলতে এসেছি—'দেখো, আমিও তোমাদের মতোই ছিলাম, এখনো শিখছি। চলো, এই অজানা পথের ভয়টা আমরা একসাথে কাটাই।'</p>
-        </div>
+    <div class="story-box">
+        <p>আমি মাইনুল ইসলাম রাহাদ। একসময় আমার মনে হতো, পৃথিবীটা হয়তো অনেক দূরে, আর আমি অনেক পিছিয়ে। কিন্তু আমি বুঝতে পেরেছি, পিছিয়ে থাকা আর সামনের দিকে এগিয়ে যাওয়ার মাঝখানের দূরত্বটা কেবল ইচ্ছাশক্তির।</p>
+        <p>আমার এই ওয়েবসাইট বা 'Smart Canvas' কোনো সাধারণ পোর্টফোলিও নয়—এটি আমার সেই সব লড়াই, ভুল থেকে শিক্ষা নেওয়া, আর প্রতিদিন নিজেকে একটু একটু করে বদলে ফেলার এক অগোছালো কিন্তু সত্য গল্প।</p>
+        <p>আমি আপনাদের শেখাতে আসিনি, আমি বরং আপনাদের বলতে এসেছি—'দেখো, আমিও তোমাদের মতোই ছিলাম, এখনো শিখছি। চলো, এই অজানা পথের ভয়টা আমরা একসাথে কাটাই।'</p>
+    </div>
 
-        <!-- সোশ্যাল লিঙ্ক সেকশন -->
-        <div class="social-container">
-            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i> Facebook</a>
-            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a href="#" class="social-link"><i class="fa-brands fa-youtube"></i> YouTube</a>
-        </div>
+    <div class="social-container">
+        <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i> Facebook</a>
+        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="#" class="social-link"><i class="fa-brands fa-youtube"></i> YouTube</a>
     </div>
 
     <div class="bottom-navigation">
-        <a href="index.html" class="nav-item">
-            <i class="fa-solid fa-house"></i> <span>Home</span>
-        </a>
-        <a href="videos.html" class="nav-item">
-            <i class="fa-solid fa-circle-play"></i> <span>Videos</span>
-        </a>
-        <a href="about.html" class="nav-item active">
-            <i class="fa-solid fa-user"></i> <span>About</span>
-        </a>
-        <a href="contact.html" class="nav-item">
-            <i class="fa-solid fa-envelope"></i> <span>Contact</span>
-        </a>
+        <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i> <span>Home</span></a>
+        <a href="videos.html" class="nav-item"><i class="fa-solid fa-circle-play"></i> <span>Videos</span></a>
+        <a href="about.html" class="nav-item active"><i class="fa-solid fa-user"></i> <span>About</span></a>
+        <a href="contact.html" class="nav-item"><i class="fa-solid fa-envelope"></i> <span>Contact</span></a>
     </div>
-<script src="script.js"></script>
 
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
 </body>
 </html>
