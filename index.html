@@ -1,52 +1,26 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hey Rahad</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; transition: 0.3s; }
-        body { background-color: #030712; color: #f8fafc; font-family: sans-serif; padding-bottom: 90px; }
-        
-        .dark-mode { background-color: #ffffff; color: #030712; }
-        
-        header { display: flex; align-items: center; justify-content: space-between; padding: 20px; }
-        .hero { text-align: center; padding: 40px 20px; }
-        .hero h1 { font-size: 2.5rem; color: #38bdf8; }
-        
-        .buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
-        .btn { padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; }
-        .btn-blue { background: #38bdf8; color: #000; }
-        .btn-dark { background: #1e293b; color: #fff; }
-
-        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #090d16; display: flex; justify-content: space-around; padding: 15px; border-top: 1px solid #1e293b; }
-        .nav-item { color: #64748b; text-decoration: none; display: flex; flex-direction: column; align-items: center; }
-        .nav-item.active { color: #38bdf8; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    body { background-color: #030712; color: #fff; font-family: sans-serif; margin: 0; padding-bottom: 80px; }
+    .dark-mode { background-color: #fff; color: #000; }
+    header { padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .hero { padding: 20px; }
+    .buttons { display: flex; gap: 10px; margin-top: 20px; }
+    .btn { padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+    .btn-blue { background: #38bdf8; color: #000; }
+    .btn-gray { background: #1e293b; color: #fff; }
+    .nav { position: fixed; bottom: 0; width: 100%; display: flex; justify-content: space-around; padding: 15px; background: #090d16; }
+</style>
 </head>
 <body>
-
-    <header>
-        <div><i class="fa-solid fa-bars"></i> <b>Hey Rahad</b></div>
-        <i class="fa-solid fa-moon" onclick="document.body.classList.toggle('dark-mode')" style="cursor:pointer;"></i>
-    </header>
-
-    <div class="hero">
-        <h1>Build Your Future</h1>
-        <p>With Rahad • Learn • Build • Grow</p>
-        <div class="buttons">
-            <a href="#" class="btn btn-blue">Start Learning</a>
-            <a href="#" class="btn btn-dark">Watch Videos</a>
-        </div>
+    <header> <span><b>Hey Rahad</b></span> <i class="fa fa-moon" onclick="document.body.classList.toggle('dark-mode')"></i> </header>
+    <div class="hero"> <h1>Build Your Future</h1> <p>With Rahad • Learn • Build • Grow</p>
+        <div class="buttons"> <a href="#" class="btn btn-blue">Start Learning</a> <a href="#" class="btn btn-gray">Watch Videos</a> </div>
     </div>
-
-    <div class="nav-bar">
-        <a href="index.html" class="nav-item active"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="videos.html" class="nav-item"><i class="fa-solid fa-circle-play"></i> Videos</a>
-        <a href="about.html" class="nav-item"><i class="fa-solid fa-user"></i> About</a>
-        <a href="contact.html" class="nav-item"><i class="fa-solid fa-envelope"></i> Contact</a>
-    </div>
-
+    <div class="nav"> <a href="index.html" style="color:white">Home</a> <a href="videos.html" style="color:white">Videos</a> <a href="about.html" style="color:white">About</a> <a href="contact.html" style="color:white">Contact</a> </div>
 </body>
 </html>
