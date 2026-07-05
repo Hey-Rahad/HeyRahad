@@ -1,26 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-    body { background-color: #030712; color: #fff; font-family: sans-serif; margin: 0; padding-bottom: 80px; }
-    .dark-mode { background-color: #fff; color: #000; }
-    header { padding: 20px; display: flex; justify-content: space-between; align-items: center; }
-    .hero { padding: 20px; }
-    .buttons { display: flex; gap: 10px; margin-top: 20px; }
-    .btn { padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; }
-    .btn-blue { background: #38bdf8; color: #000; }
-    .btn-gray { background: #1e293b; color: #fff; }
-    .nav { position: fixed; bottom: 0; width: 100%; display: flex; justify-content: space-around; padding: 15px; background: #090d16; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey Rahad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background-color: #030712; color: #fff; padding-bottom: 80px; }
+        header { display: flex; align-items: center; justify-content: space-between; padding: 20px; }
+        .hero { padding: 30px 20px; text-align: left; }
+        .hero h1 { font-size: 2.5rem; color: #fff; }
+        .hero h1 span { color: #38bdf8; }
+        .hero p { color: #94a3b8; margin: 10px 0; }
+        .btns { display: flex; gap: 10px; margin: 20px 0; }
+        .btn { padding: 12px 25px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block; }
+        .btn-blue { background: #3b82f6; color: white; }
+        .btn-gray { background: #1e293b; color: white; }
+        .stats { display: flex; gap: 10px; padding: 0 20px; }
+        .stat-card { background: #111827; padding: 15px; border-radius: 10px; flex: 1; text-align: center; border: 1px solid #1f2937; }
+        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #030712; display: flex; justify-content: space-around; padding: 15px; border-top: 1px solid #1f2937; }
+        .nav-item { color: #64748b; text-decoration: none; font-size: 0.8rem; text-align: center; }
+    </style>
 </head>
 <body>
-    <header> <span><b>Hey Rahad</b></span> <i class="fa fa-moon" onclick="document.body.classList.toggle('dark-mode')"></i> </header>
-    <div class="hero"> <h1>Build Your Future</h1> <p>With Rahad • Learn • Build • Grow</p>
-        <div class="buttons"> <a href="#" class="btn btn-blue">Start Learning</a> <a href="#" class="btn btn-gray">Watch Videos</a> </div>
+    <header>
+        <div><i class="fa-solid fa-bars"></i> <span style="font-weight:bold;">Hey Rahad</span></div>
+        <div><i class="fa-solid fa-search"></i> <i class="fa-solid fa-moon"></i></div>
+    </header>
+
+    <div class="hero">
+        <h1>Build Your <span>Future</span></h1>
+        <p>With Rahad • Learn • Build • Grow</p>
+        <p style="font-size: 0.9rem; color: #64748b;">Hey Rahad is a platform where you can learn self improvement, study, business, AI and much more for your better future.</p>
+        <div class="btns">
+            <a href="#" class="btn btn-blue"><i class="fa-solid fa-graduation-cap"></i> Start Learning</a>
+            <a href="#" class="btn btn-gray"><i class="fa-solid fa-play"></i> Watch Videos</a>
+        </div>
     </div>
-    <div class="nav"> <a href="index.html" style="color:white">Home</a> <a href="videos.html" style="color:white">Videos</a> <a href="about.html" style="color:white">About</a> <a href="contact.html" style="color:white">Contact</a> </div>
+
+    <div class="stats">
+        <div class="stat-card">50+<br>Videos</div>
+        <div class="stat-card">20+<br>Articles</div>
+        <div class="stat-card">10K+<br>Community</div>
+    </div>
+
+    <div class="nav-bar">
+        <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i><br>Home</a>
+        <a href="videos.html" class="nav-item"><i class="fa-solid fa-circle-play"></i><br>Videos</a>
+        <a href="blog.html" class="nav-item"><i class="fa-solid fa-newspaper"></i><br>Blog</a>
+        <a href="about.html" class="nav-item"><i class="fa-solid fa-user"></i><br>About</a>
+        <a href="contact.html" class="nav-item"><i class="fa-solid fa-envelope"></i><br>Contact</a>
+    </div>
 </body>
 </html>
+
