@@ -4,133 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Hey Rahad</title>
-    <!-- ফন্ট অসাম আইকন -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #030712; color: #f8fafc; font-family: 'Segoe UI', sans-serif; padding-bottom: 90px; }
-        
-        /* টপ হেডার */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background-color: #030712; border-bottom: 1px solid #1e293b; }
-        .header-left { display: flex; align-items: center; gap: 12px; }
-        .menu-icon { font-size: 1.2rem; color: #94a3b8; cursor: pointer; }
-        .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.2rem; color: #ffffff; }
-        .logo i { color: #38bdf8; font-size: 1.4rem; }
-
-        /* পেজের টাইটেল */
-        .page-header { padding: 30px 20px; text-align: center; }
-        .page-header h1 { font-size: 2rem; color: #fff; margin-bottom: 10px; }
-        .page-header h1 span { color: #00d2ff; } /* ব্লগের জন্য বিশেষ রঙ */
-        .page-header p { color: #94a3b8; font-size: 0.95rem; }
-
-        /* ব্লগ লিস্ট ও কার্ড ডিজাইন */
-        .blog-list { padding: 0 20px 40px 20px; display: flex; flex-direction: column; gap: 25px; }
-        .blog-card { background: #0f172a; border-radius: 12px; overflow: hidden; border: 1px solid #1e293b; transition: 0.3s; }
-        
-        /* ব্লগের ছবি (আপাতত গ্রেডিয়েন্ট কালার দেওয়া আছে) */
-        .blog-img { width: 100%; height: 180px; background: linear-gradient(45deg, #1e293b, #38bdf8); }
-        .blog-img-2 { width: 100%; height: 180px; background: linear-gradient(45deg, #1e293b, #00ff87); }
-        
-        .blog-content { padding: 20px; }
-        .blog-meta { font-size: 0.75rem; color: #3b82f6; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; }
-        .blog-content h3 { font-size: 1.2rem; color: #ffffff; margin-bottom: 10px; line-height: 1.4; }
-        .blog-content p { font-size: 0.85rem; color: #94a3b8; margin-bottom: 15px; line-height: 1.5; }
-        
-        /* Read More বাটন */
-        .read-more { display: inline-flex; align-items: center; gap: 5px; color: #3b82f6; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
-        
-        /* বটম মোবাইল ন্যাভিগেশন বার */
-        .bottom-navigation {
-            position: fixed; bottom: 0; left: 0; width: 100%; background-color: #090d16;
-            border-top: 1px solid #1e293b; display: flex; justify-content: space-around; padding: 12px 0; z-index: 10;
-        }
-        .nav-item { text-align: center; color: #64748b; text-decoration: none; font-size: 0.75rem; display: flex; flex-direction: column; gap: 4px; }
-        .nav-item i { font-size: 1.2rem; }
-        .nav-item.active { color: #3b82f6; } /* Blog বাটনটি নীল থাকবে */
+        body { background-color: #030712; color: #fff; font-family: sans-serif; margin: 0; padding-bottom: 80px; }
+        .dark-mode { background-color: #fff; color: #000; }
+        .container { padding: 20px; }
+        .nav { position: fixed; bottom: 0; width: 100%; display: flex; justify-content: space-around; padding: 15px; background: #090d16; }
+        a { text-decoration: none; color: #38bdf8; }
     </style>
-    /* ডার্ক মোড ক্লাস */
-.dark-mode {
-    background-color: #ffffff;
-    color: #030712;
-}
-.dark-mode header, .dark-mode .bottom-navigation, .dark-mode .section-box {
-    background-color: #f1f5f9;
-    border-color: #cbd5e1;
-}
-.dark-mode h1, .dark-mode h2, .dark-mode h3 { color: #0f172a; }
-.dark-mode p { color: #475569; }
-
 </head>
 <body>
-
-    <!-- টপ বার -->
-    <header>
-        <div class="header-left">
-            <i class="fa-solid fa-arrow-left menu-icon" onclick="history.back()"></i> <!-- ব্যাক বাটন -->
-            <div class="logo"><i class="fa-solid fa-robot"></i> Hey Rahad</div>
-        </div>
-    </header>
-
-    <!-- পেজ টাইটেল -->
-    <div class="page-header">
-        <h1>Latest <span>Insights</span></h1>
-        <p>Read my latest articles on AI, business, and self-improvement.</p>
+    <div class="container">
+        <h1>My Blog</h1>
+        <p>এখানে আমার লেখা আর্টিকেলগুলো পাওয়া যাবে।</p>
     </div>
-
-    <!-- ব্লগ সেকশন -->
-    <div class="blog-list">
-        
-        <!-- ব্লগ পোস্ট ১ -->
-        <div class="blog-card">
-            <div class="blog-img"></div>
-            <div class="blog-content">
-                <div class="blog-meta"><i class="fa-solid fa-microchip"></i> AI & Technology</div>
-                <h3>How to use AI to grow your business in 2026</h3>
-                <p>Artificial Intelligence is changing the way we work. Discover the top tools you need to stay ahead of the curve.</p>
-                <a href="#" class="read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-        </div>
-
-        <!-- ব্লগ পোস্ট ২ -->
-        <div class="blog-card">
-            <div class="blog-img-2"></div>
-            <div class="blog-content">
-                <div class="blog-meta"><i class="fa-solid fa-user-graduate"></i> Study Smart</div>
-                <div class="blog-title">
-                    <h3>5 Productivity Hacks for Students</h3>
-                </div>
-                <p>Struggling to focus? Learn these simple but effective methods to increase your concentration and get more done.</p>
-                <a href="#" class="read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-        </div>
-
+    
+    <div class="nav"> 
+        <a href="index.html">Home</a> 
+        <a href="blog.html" style="color:white">Blog</a> 
     </div>
-
-    <!-- বটম মেনু বার -->
-    <div class="bottom-navigation">
-        <a href="index.html" class="nav-item">
-            <i class="fa-solid fa-house"></i>
-            <span>Home</span>
-        </a>
-        <a href="videos.html" class="nav-item">
-            <i class="fa-solid fa-circle-play"></i>
-            <span>Videos</span>
-        </a>
-        <a href="blog.html" class="nav-item active"> <!-- Blog অ্যাক্টিভ করা হয়েছে -->
-            <i class="fa-solid fa-newspaper"></i>
-            <span>Blog</span>
-        </a>
-        <a href="about.html" class="nav-item">
-            <i class="fa-solid fa-user"></i>
-            <span>About</span>
-        </a>
-        <a href="contact.html" class="nav-item">
-            <i class="fa-solid fa-envelope"></i>
-            <span>Contact</span>
-        </a>
-    </div>
-<script src="script.js"></script>
-
 </body>
 </html>
-
