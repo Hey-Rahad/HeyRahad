@@ -15,14 +15,19 @@
         .logo { font-weight: 700; font-size: 1.2rem; color: #ffffff; }
 
         /* হিরো সেকশন */
-        .hero { text-align: center; padding: 50px 20px; }
+        .hero { text-align: center; padding: 40px 20px; }
         .hero h1 { font-size: 2rem; margin-bottom: 10px; color: #38bdf8; }
         .hero p { color: #94a3b8; font-style: italic; }
 
         /* মূল কন্টেন্ট */
         .content { padding: 0 20px 40px 20px; }
-        .story-box { background: #0f172a; padding: 25px; border-radius: 15px; border-left: 4px solid #38bdf8; }
+        .story-box { background: #0f172a; padding: 25px; border-radius: 15px; border-left: 4px solid #38bdf8; margin-bottom: 20px; }
         .story-box p { margin-bottom: 20px; color: #e2e8f0; font-size: 1.05rem; }
+
+        /* সোশ্যাল বাটন স্টাইল */
+        .social-container { display: flex; flex-direction: column; gap: 10px; }
+        .social-link { background: #1e293b; color: #fff; padding: 12px; text-align: center; text-decoration: none; border-radius: 8px; font-weight: 600; transition: 0.3s; }
+        .social-link:hover { background: #38bdf8; color: #000; }
 
         /* বটম ন্যাভিগেশন */
         .bottom-navigation {
@@ -48,14 +53,15 @@
     <div class="content">
         <div class="story-box">
             <p>আমি মাইনুল ইসলাম রাহাদ। একসময় আমার মনে হতো, পৃথিবীটা হয়তো অনেক দূরে, আর আমি অনেক পিছিয়ে। কিন্তু আমি বুঝতে পেরেছি, পিছিয়ে থাকা আর সামনের দিকে এগিয়ে যাওয়ার মাঝখানের দূরত্বটা কেবল ইচ্ছাশক্তির।</p>
-            
             <p>আমি বিশ্বাস করি, আমরা প্রত্যেকেই ভেতরে ভেতরে কিছু একটা করার স্বপ্ন দেখি, কিন্তু সঠিক দিকনির্দেশনা বা শুরুর ভয়ের কারণে আমরা অনেক সময় থমকে যাই। আমার এই ওয়েবসাইট বা 'Smart Canvas' কোনো সাধারণ পোর্টফোলিও নয়—এটি আমার সেই সব লড়াই, ভুল থেকে শিক্ষা নেওয়া, আর প্রতিদিন নিজেকে একটু একটু করে বদলে ফেলার এক অগোছালো কিন্তু সত্য গল্প।</p>
-            
-            <p>আমি যখন নতুন কিছু শিখি, যখন ব্যর্থ হই, কিংবা যখন কোনো একটা ছোট সমস্যার সমাধান করি—সেই অনুভূতিগুলোই আমি আপনাদের সাথে শেয়ার করি। কারণ, আমি জানি আমার মতো আরও অনেকে হয়তো কোনো একটি জায়গায় আটকে আছে। আমি আপনাদের শেখাতে আসিনি, আমি বরং আপনাদের বলতে এসেছি—'দেখো, আমিও তোমাদের মতোই ছিলাম, এখনো শিখছি। চলো, এই অজানা পথের ভয়টা আমরা একসাথে কাটাই।'</p>
-            
-            <p>আমাদের জীবনের এই ডিজিটাল পথচলায় আমরা সবাই যাত্রী। আমি শুধু চাই, আমার এই ডায়েরিটা যেন আপনার মনে করিয়ে দেয় যে, আজকের দিনটি গতকালের চেয়ে একটু ভালো হওয়া সম্ভব। ডিজিটাল এই পৃথিবীতে আমরা শুধু স্কিল শিখব না, আমরা শিখব একে অপরের পাশে দাঁড়িয়ে কীভাবে বড় একটি স্বপ্ন দেখা যায়।</p>
-            
-            <p>চলুন, আমরা আমাদের স্বপ্নগুলোকে শুধু কল্পনাতে না রেখে, সেগুলোকে বাস্তবে রূপ দেওয়ার জন্য একসাথে পথ চলি। কারণ, একাকী এগিয়ে যাওয়ার চেয়ে, একসাথে স্বপ্ন জয় করাটা অনেক বেশি সুন্দর।</p>
+            <p>আমি যখন নতুন কিছু শিখি, যখন ব্যর্থ হই, কিংবা যখন কোনো একটা ছোট সমস্যার সমাধান করি—সেই অনুভূতিগুলোই আমি আপনাদের সাথে শেয়ার করি। আমি আপনাদের শেখাতে আসিনি, আমি বরং আপনাদের বলতে এসেছি—'দেখো, আমিও তোমাদের মতোই ছিলাম, এখনো শিখছি। চলো, এই অজানা পথের ভয়টা আমরা একসাথে কাটাই।'</p>
+        </div>
+
+        <!-- সোশ্যাল লিঙ্ক সেকশন -->
+        <div class="social-container">
+            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="#" class="social-link"><i class="fa-brands fa-youtube"></i> YouTube</a>
         </div>
     </div>
 
@@ -76,4 +82,3 @@
 
 </body>
 </html>
-
