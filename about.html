@@ -25,7 +25,7 @@
             display: flex; align-items: center; justify-content: center;
             box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
         }
-        .avatar-placeholder i { font-size: 3rem; color: #fff; }
+        .avatar-placeholder i { font-size: 3.5rem; color: #fff; }
         
         .profile-hero h1 { font-size: 1.8rem; color: #ffffff; margin-bottom: 5px; }
         .profile-hero p { font-size: 0.9rem; color: #38bdf8; font-weight: 600; margin-bottom: 15px; }
@@ -35,9 +35,9 @@
         .section-box { background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
         .section-box h3 { font-size: 1.1rem; color: #ffffff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
         .section-box h3 i { color: #3b82f6; }
-        .section-box p { font-size: 0.9rem; color: #94a3b8; line-height: 1.6; }
+        .section-box p { font-size: 0.9rem; color: #94a3b8; line-height: 1.7; margin-bottom: 10px; }
 
-        /* কাজের ক্ষেত্রসমূহ (Skills/Focus) */
+        /* কাজের ক্ষেত্রসমূহ */
         .focus-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 10px; }
         .focus-item { background: #1e293b; padding: 12px; border-radius: 8px; display: flex; align-items: center; gap: 12px; }
         .focus-item i { font-size: 1.2rem; color: #00ff87; }
@@ -59,62 +59,73 @@
         }
         .nav-item { text-align: center; color: #64748b; text-decoration: none; font-size: 0.75rem; display: flex; flex-direction: column; gap: 4px; }
         .nav-item i { font-size: 1.2rem; }
-        .nav-item.active { color: #3b82f6; } /* About বাটনটি নীল থাকবে */
+        .nav-item.active { color: #3b82f6; }
     </style>
 </head>
 <body>
 
+    <!-- টপ বার -->
     <header>
         <div class="header-left">
-            <i class="fa-solid fa-arrow-left menu-icon" onclick="history.back()"></i> <div class="logo"><i class="fa-solid fa-robot"></i> Hey Rahad</div>
+            <i class="fa-solid fa-arrow-left menu-icon" onclick="history.back()"></i>
+            <div class="logo"><i class="fa-solid fa-robot"></i> Hey Rahad</div>
         </div>
     </header>
 
+    <!-- প্রোফাইল হিরো সেকশন -->
     <div class="profile-hero">
         <div class="avatar-container">
             <div class="avatar-placeholder">
-                <i class="fa-solid fa-user-astronaut"></i> </div>
+                <i class="fa-solid fa-user-tie"></i> 
+            </div>
         </div>
         <h1>Rahad</h1>
-        <p>AI Content Creator & Digital Explorer</p>
+        <p>Digital Learner & AI Creator</p>
     </div>
 
+    <!-- মূল কন্টেন্ট -->
     <div class="about-content">
         
+        <!-- আমার দর্শন ও গল্প -->
         <div class="section-box">
-            <h3><i class="fa-solid fa-circle-user"></i> About Me</h3>
-            <p>হ্যালো! আমি রাহাদ। আমি নতুন নতুন স্কিল শেখা এবং ডিজিটাল ক্রিয়েটিভিটি নিয়ে কাজ করতে ভালোবাসি। বিশেষ করে আর্টিফিশিয়াল ইন্টেলিজেন্স (AI) ভিডিও এডিটিং, এআই টুলসের সঠিক ব্যবহার এবং কনটেন্ট ক্রিয়েশন নিয়ে আমি কাজ করছি। নিজের স্কিল বাড়ানোর পাশাপাশি অন্যদের সাহায্য করার লক্ষ্যেই আমার এই পথচলা।</p>
+            <h3><i class="fa-solid fa-lightbulb"></i> My Vision</h3>
+            <p>বর্তমান সময়টা পুরোপুরি প্রযুক্তিনির্ভর। এখনকার দিনে সবকিছুই ডিজিটাল মাধ্যমে হচ্ছে এবং ভবিষ্যতের পৃথিবী এই ডিজিটাল স্কিলগুলোর ওপরই নির্ভর করবে। তাই সময়ের সাথে তাল মিলিয়ে আমাদের নতুন জিনিস শিখতেই হবে, তা না হলে আমরা অনেকটাই পিছিয়ে পড়ব।</p>
+            <p>আমি বিশ্বাস করি, সবচেয়ে ভালোভাবে শেখা যায় তখনই, যখন আমরা আমাদের জ্ঞান অন্যের সাথে শেয়ার করি। 'Hey Rahad' এবং আমার উদ্যোগ 'Smart Canvas' হলো আমার সেই অবিরাম শেখারই একটি ডিজিটাল ডায়েরি।</p>
         </div>
 
+        <!-- আমি কী কী নিয়ে কাজ করি -->
         <div class="section-box">
-            <h3><i class="fa-solid fa-bolt"></i> My Focus Areas</h3>
+            <h3><i class="fa-solid fa-rocket"></i> My Journey</h3>
+            <p>আমি প্রতিনিয়ত এআই (AI) ভিডিও প্রোডাকশন, ক্যানভা (Canva Pro) ডিজাইন এবং প্রফেশনাল লেভেলের এডিটিং নিয়ে নিজেকে আরও উন্নত করার চেষ্টা করছি। এর পাশাপাশি নিজের কমিউনিকেশন স্কিল এবং প্রেজেন্টেশন আরও ভালো করার জন্য কাজ করে যাচ্ছি। আমি যা কিছু শিখি, তা খুব সহজভাবে আপনাদের সামনে তুলে ধরাই আমার মূল লক্ষ্য।</p>
             <div class="focus-grid">
                 <div class="focus-item">
                     <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span>AI Video Production (Smart Canvas)</span>
+                    <span>AI Video & Image Generation</span>
                 </div>
                 <div class="focus-item">
-                    <i class="fa-solid fa-clapperboard"></i>
-                    <span>Social Media Content Strategy</span>
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span>Content Creation Strategy</span>
                 </div>
                 <div class="focus-item">
-                    <i class="fa-solid fa-arrow-trend-up"></i>
-                    <span>Self Improvement & Communication Skills</span>
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span>Communication & Presentation</span>
                 </div>
             </div>
         </div>
 
+        <!-- লক্ষ্য ও কমিউনিটি -->
         <div class="section-box">
-            <h3><i class="fa-solid fa-link"></i> Connect With Me</h3>
-            <p>আমার তৈরি করা কন্টেন্ট এবং রেগুলার আপডেট দেখতে আমার সোশ্যাল মিডিয়া পেজে যুক্ত হতে পারেন:</p>
+            <h3><i class="fa-solid fa-users"></i> The Goal</h3>
+            <p>আমার চূড়ান্ত লক্ষ্য হলো এমন একটি বড় ও সক্রিয় কমিউনিটি তৈরি করা, যেখানে আমরা সবাই একসাথে শিখব, নিজেদের স্কিল বাড়াব এবং ভবিষ্যতের ডিজিটাল দুনিয়ায় নিজেদের একটি শক্ত অবস্থান তৈরি করব। চলুন, একসাথে শিখি এবং একসাথে বেড়ে উঠি!</p>
             <div class="social-buttons">
-                <a href="#" class="social-btn fb-btn"><i class="fa-brands fa-facebook"></i> Follow on Facebook</a>
+                <a href="#" class="social-btn fb-btn"><i class="fa-brands fa-facebook"></i> Join Smart Canvas on Facebook</a>
                 <a href="#" class="social-btn yt-btn"><i class="fa-brands fa-youtube"></i> Subscribe on YouTube</a>
             </div>
         </div>
 
     </div>
 
+    <!-- বটম মেনু বার -->
     <div class="bottom-navigation">
         <a href="index.html" class="nav-item">
             <i class="fa-solid fa-house"></i>
@@ -128,7 +139,8 @@
             <i class="fa-solid fa-newspaper"></i>
             <span>Blog</span>
         </a>
-        <a href="about.html" class="nav-item active"> <i class="fa-solid fa-user"></i>
+        <a href="about.html" class="nav-item active">
+            <i class="fa-solid fa-user"></i>
             <span>About</span>
         </a>
         <a href="contact.html" class="nav-item">
