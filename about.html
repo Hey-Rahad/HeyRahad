@@ -3,151 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Hey Rahad</title>
+    <title>About | Maimul Islam Rahad</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #030712; color: #f8fafc; font-family: 'Segoe UI', sans-serif; padding-bottom: 90px; }
+        body { background-color: #030712; color: #f8fafc; font-family: 'Segoe UI', sans-serif; padding-bottom: 90px; line-height: 1.6; }
         
         /* টপ হেডার */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background-color: #030712; border-bottom: 1px solid #1e293b; }
-        .header-left { display: flex; align-items: center; gap: 12px; }
-        .menu-icon { font-size: 1.2rem; color: #94a3b8; cursor: pointer; }
-        .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.2rem; color: #ffffff; }
-        .logo i { color: #38bdf8; font-size: 1.4rem; }
+        header { display: flex; align-items: center; padding: 20px; background-color: #030712; border-bottom: 1px solid #1e293b; }
+        .back-btn { font-size: 1.2rem; color: #94a3b8; cursor: pointer; margin-right: 15px; }
+        .logo { font-weight: 700; font-size: 1.2rem; color: #ffffff; }
 
-        /* প্রোফাইল হিরো সেকশন */
-        .profile-hero { text-align: center; padding: 40px 20px 30px 20px; background: linear-gradient(180deg, #030712 0%, #0b1329 100%); }
-        .avatar-container { position: relative; width: 110px; height: 110px; margin: 0 auto 15px auto; }
-        .avatar-placeholder { 
-            width: 100%; height: 100%; border-radius: 50%; 
-            background: linear-gradient(45deg, #3b82f6, #00d2ff); 
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-        }
-        .avatar-placeholder i { font-size: 3.5rem; color: #fff; }
-        
-        .profile-hero h1 { font-size: 1.8rem; color: #ffffff; margin-bottom: 5px; }
-        .profile-hero p { font-size: 0.9rem; color: #38bdf8; font-weight: 600; margin-bottom: 15px; }
+        /* হিরো সেকশন */
+        .hero { text-align: center; padding: 50px 20px; }
+        .hero h1 { font-size: 2rem; margin-bottom: 10px; color: #38bdf8; }
+        .hero p { color: #94a3b8; font-style: italic; }
 
-        /* তথ্য ও বিবরণী সেকশন */
-        .about-content { padding: 0 20px 30px 20px; }
-        .section-box { background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
-        .section-box h3 { font-size: 1.1rem; color: #ffffff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-        .section-box h3 i { color: #3b82f6; }
-        .section-box p { font-size: 0.9rem; color: #94a3b8; line-height: 1.7; margin-bottom: 10px; }
+        /* মূল কন্টেন্ট */
+        .content { padding: 0 20px 40px 20px; }
+        .story-box { background: #0f172a; padding: 25px; border-radius: 15px; border-left: 4px solid #38bdf8; }
+        .story-box p { margin-bottom: 20px; color: #e2e8f0; font-size: 1.05rem; }
 
-        /* কাজের ক্ষেত্রসমূহ */
-        .focus-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 10px; }
-        .focus-item { background: #1e293b; padding: 12px; border-radius: 8px; display: flex; align-items: center; gap: 12px; }
-        .focus-item i { font-size: 1.2rem; color: #00ff87; }
-        .focus-item span { font-size: 0.85rem; font-weight: 600; color: #f8fafc; }
-
-        /* সোশ্যাল লিংক বাটন */
-        .social-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
-        .social-btn { 
-            display: flex; align-items: center; justify-content: center; gap: 10px; 
-            padding: 12px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: 600; color: #fff;
-        }
-        .fb-btn { background-color: #1877f2; }
-        .yt-btn { background-color: #ff0000; }
-
-        /* বটম মোবাইল ন্যাভিগেশন বার */
+        /* বটম ন্যাভিগেশন */
         .bottom-navigation {
             position: fixed; bottom: 0; left: 0; width: 100%; background-color: #090d16;
-            border-top: 1px solid #1e293b; display: flex; justify-content: space-around; padding: 12px 0; z-index: 10;
+            border-top: 1px solid #1e293b; display: flex; justify-content: space-around; padding: 12px 0;
         }
         .nav-item { text-align: center; color: #64748b; text-decoration: none; font-size: 0.75rem; display: flex; flex-direction: column; gap: 4px; }
-        .nav-item i { font-size: 1.2rem; }
-        .nav-item.active { color: #3b82f6; }
+        .nav-item.active { color: #38bdf8; }
     </style>
 </head>
 <body>
 
-    <!-- টপ বার -->
     <header>
-        <div class="header-left">
-            <i class="fa-solid fa-arrow-left menu-icon" onclick="history.back()"></i>
-            <div class="logo"><i class="fa-solid fa-robot"></i> Hey Rahad</div>
-        </div>
+        <i class="fa-solid fa-arrow-left back-btn" onclick="history.back()"></i>
+        <div class="logo">Hey Rahad</div>
     </header>
 
-    <!-- প্রোফাইল হিরো সেকশন -->
-    <div class="profile-hero">
-        <div class="avatar-container">
-            <div class="avatar-placeholder">
-                <i class="fa-solid fa-user-tie"></i> 
-            </div>
-        </div>
-        <h1>Rahad</h1>
-        <p>Digital Learner & AI Creator</p>
+    <div class="hero">
+        <h1>Maimul Islam Rahad</h1>
+        <p>Digital Learner & Storyteller</p>
     </div>
 
-    <!-- মূল কন্টেন্ট -->
-    <div class="about-content">
-        
-        <!-- আমার দর্শন ও গল্প -->
-        <div class="section-box">
-            <h3><i class="fa-solid fa-lightbulb"></i> My Vision</h3>
-            <p>বর্তমান সময়টা পুরোপুরি প্রযুক্তিনির্ভর। এখনকার দিনে সবকিছুই ডিজিটাল মাধ্যমে হচ্ছে এবং ভবিষ্যতের পৃথিবী এই ডিজিটাল স্কিলগুলোর ওপরই নির্ভর করবে। তাই সময়ের সাথে তাল মিলিয়ে আমাদের নতুন জিনিস শিখতেই হবে, তা না হলে আমরা অনেকটাই পিছিয়ে পড়ব।</p>
-            <p>আমি বিশ্বাস করি, সবচেয়ে ভালোভাবে শেখা যায় তখনই, যখন আমরা আমাদের জ্ঞান অন্যের সাথে শেয়ার করি। 'Hey Rahad' এবং আমার উদ্যোগ 'Smart Canvas' হলো আমার সেই অবিরাম শেখারই একটি ডিজিটাল ডায়েরি।</p>
+    <div class="content">
+        <div class="story-box">
+            <p>আমি মাইনুল ইসলাম রাহাদ। একসময় আমার মনে হতো, পৃথিবীটা হয়তো অনেক দূরে, আর আমি অনেক পিছিয়ে। কিন্তু আমি বুঝতে পেরেছি, পিছিয়ে থাকা আর সামনের দিকে এগিয়ে যাওয়ার মাঝখানের দূরত্বটা কেবল ইচ্ছাশক্তির।</p>
+            
+            <p>আমি বিশ্বাস করি, আমরা প্রত্যেকেই ভেতরে ভেতরে কিছু একটা করার স্বপ্ন দেখি, কিন্তু সঠিক দিকনির্দেশনা বা শুরুর ভয়ের কারণে আমরা অনেক সময় থমকে যাই। আমার এই ওয়েবসাইট বা 'Smart Canvas' কোনো সাধারণ পোর্টফোলিও নয়—এটি আমার সেই সব লড়াই, ভুল থেকে শিক্ষা নেওয়া, আর প্রতিদিন নিজেকে একটু একটু করে বদলে ফেলার এক অগোছালো কিন্তু সত্য গল্প।</p>
+            
+            <p>আমি যখন নতুন কিছু শিখি, যখন ব্যর্থ হই, কিংবা যখন কোনো একটা ছোট সমস্যার সমাধান করি—সেই অনুভূতিগুলোই আমি আপনাদের সাথে শেয়ার করি। কারণ, আমি জানি আমার মতো আরও অনেকে হয়তো কোনো একটি জায়গায় আটকে আছে। আমি আপনাদের শেখাতে আসিনি, আমি বরং আপনাদের বলতে এসেছি—'দেখো, আমিও তোমাদের মতোই ছিলাম, এখনো শিখছি। চলো, এই অজানা পথের ভয়টা আমরা একসাথে কাটাই।'</p>
+            
+            <p>আমাদের জীবনের এই ডিজিটাল পথচলায় আমরা সবাই যাত্রী। আমি শুধু চাই, আমার এই ডায়েরিটা যেন আপনার মনে করিয়ে দেয় যে, আজকের দিনটি গতকালের চেয়ে একটু ভালো হওয়া সম্ভব। ডিজিটাল এই পৃথিবীতে আমরা শুধু স্কিল শিখব না, আমরা শিখব একে অপরের পাশে দাঁড়িয়ে কীভাবে বড় একটি স্বপ্ন দেখা যায়।</p>
+            
+            <p>চলুন, আমরা আমাদের স্বপ্নগুলোকে শুধু কল্পনাতে না রেখে, সেগুলোকে বাস্তবে রূপ দেওয়ার জন্য একসাথে পথ চলি। কারণ, একাকী এগিয়ে যাওয়ার চেয়ে, একসাথে স্বপ্ন জয় করাটা অনেক বেশি সুন্দর।</p>
         </div>
-
-        <!-- আমি কী কী নিয়ে কাজ করি -->
-        <div class="section-box">
-            <h3><i class="fa-solid fa-rocket"></i> My Journey</h3>
-            <p>আমি প্রতিনিয়ত এআই (AI) ভিডিও প্রোডাকশন, ক্যানভা (Canva Pro) ডিজাইন এবং প্রফেশনাল লেভেলের এডিটিং নিয়ে নিজেকে আরও উন্নত করার চেষ্টা করছি। এর পাশাপাশি নিজের কমিউনিকেশন স্কিল এবং প্রেজেন্টেশন আরও ভালো করার জন্য কাজ করে যাচ্ছি। আমি যা কিছু শিখি, তা খুব সহজভাবে আপনাদের সামনে তুলে ধরাই আমার মূল লক্ষ্য।</p>
-            <div class="focus-grid">
-                <div class="focus-item">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span>AI Video & Image Generation</span>
-                </div>
-                <div class="focus-item">
-                    <i class="fa-solid fa-laptop-code"></i>
-                    <span>Content Creation Strategy</span>
-                </div>
-                <div class="focus-item">
-                    <i class="fa-solid fa-bullhorn"></i>
-                    <span>Communication & Presentation</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- লক্ষ্য ও কমিউনিটি -->
-        <div class="section-box">
-            <h3><i class="fa-solid fa-users"></i> The Goal</h3>
-            <p>আমার চূড়ান্ত লক্ষ্য হলো এমন একটি বড় ও সক্রিয় কমিউনিটি তৈরি করা, যেখানে আমরা সবাই একসাথে শিখব, নিজেদের স্কিল বাড়াব এবং ভবিষ্যতের ডিজিটাল দুনিয়ায় নিজেদের একটি শক্ত অবস্থান তৈরি করব। চলুন, একসাথে শিখি এবং একসাথে বেড়ে উঠি!</p>
-            <div class="social-buttons">
-                <a href="#" class="social-btn fb-btn"><i class="fa-brands fa-facebook"></i> Join Smart Canvas on Facebook</a>
-                <a href="#" class="social-btn yt-btn"><i class="fa-brands fa-youtube"></i> Subscribe on YouTube</a>
-            </div>
-        </div>
-
     </div>
 
-    <!-- বটম মেনু বার -->
     <div class="bottom-navigation">
         <a href="index.html" class="nav-item">
-            <i class="fa-solid fa-house"></i>
-            <span>Home</span>
+            <i class="fa-solid fa-house"></i> <span>Home</span>
         </a>
         <a href="videos.html" class="nav-item">
-            <i class="fa-solid fa-circle-play"></i>
-            <span>Videos</span>
-        </a>
-        <a href="blog.html" class="nav-item">
-            <i class="fa-solid fa-newspaper"></i>
-            <span>Blog</span>
+            <i class="fa-solid fa-circle-play"></i> <span>Videos</span>
         </a>
         <a href="about.html" class="nav-item active">
-            <i class="fa-solid fa-user"></i>
-            <span>About</span>
+            <i class="fa-solid fa-user"></i> <span>About</span>
         </a>
         <a href="contact.html" class="nav-item">
-            <i class="fa-solid fa-envelope"></i>
-            <span>Contact</span>
+            <i class="fa-solid fa-envelope"></i> <span>Contact</span>
         </a>
     </div>
 
 </body>
 </html>
+
