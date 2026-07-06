@@ -1,27 +1,389 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Hey Rahad</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body { background-color: #030712; color: #fff; font-family: sans-serif; margin: 0; padding-bottom: 80px; }
-        .dark-mode { background-color: #fff; color: #000; }
-        .container { padding: 20px; }
-        .nav { position: fixed; bottom: 0; width: 100%; display: flex; justify-content: space-around; padding: 15px; background: #090d16; }
-        a { text-decoration: none; color: #38bdf8; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Hey Rahad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --bg-0:#070B1A;
+    --card:#111827;
+    --card-glass:rgba(17,24,39,0.6);
+    --line:rgba(148,163,184,0.12);
+    --line-strong:rgba(148,163,184,0.22);
+    --text-hi:#ffffff;
+    --text-mid:#a7b0c0;
+    --text-low:#6b7385;
+    --primary:#3B82F6;
+    --primary-deep:#1d5fd1;
+    --secondary:#0EA5E9;
+    --green:#22c55e;
+    --orange:#f97316;
+    --purple:#a855f7;
+    --pink:#ec4899;
+    --gold:#eab308;
+    --red:#ef4444;
+    --radius:15px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-0);
+    background-image:
+      radial-gradient(50% 40% at 85% 0%, rgba(59,130,246,0.10), transparent 70%),
+      radial-gradient(40% 35% at 0% 60%, rgba(14,165,233,0.06), transparent 70%);
+    background-attachment:fixed;
+    color:var(--text-hi);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:78px;
+  }
+  h1,h2,h3,.brand,.btn,.nav-link,.section-title{font-family:'Sora', sans-serif;}
+  a{text-decoration:none; color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(7,11,26,0.72);
+    backdrop-filter:blur(18px) saturate(140%);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:15px 24px; max-width:1180px; margin:0 auto; }
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:19px;}
+  .brand .bot{
+    width:38px; height:38px; border-radius:11px;
+    background:linear-gradient(145deg, var(--primary), var(--secondary));
+    display:flex; align-items:center; justify-content:center; font-size:17px; color:#fff;
+    box-shadow:0 0 0 1px rgba(255,255,255,0.08), 0 6px 16px rgba(59,130,246,0.35);
+  }
+  .nav-links{display:flex; gap:32px; list-style:none;}
+  .nav-links a{ font-size:14.5px; font-weight:600; color:var(--text-mid); padding:6px 2px; border-bottom:2px solid transparent; transition:color .2s, border-color .2s; }
+  .nav-links a:hover, .nav-links a.active{color:var(--text-hi); border-color:var(--primary);}
+  .nav-tools{display:flex; align-items:center; gap:12px;}
+  .icon-btn{
+    width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,0.04); border:1px solid var(--line); color:var(--text-mid); cursor:pointer; font-size:15px;
+    transition:background .2s, color .2s, transform .15s;
+  }
+  .icon-btn:hover{background:rgba(255,255,255,0.08); color:var(--text-hi);}
+  .icon-btn:active{transform:scale(.94);}
+  .hamburger{display:none;}
+  .mobile-menu{ display:none; flex-direction:column; border-top:1px solid var(--line); background:rgba(7,11,26,0.95); backdrop-filter:blur(18px); }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{ padding:14px 24px; font-size:14.5px; font-weight:600; color:var(--text-mid); border-bottom:1px solid var(--line); }
+  .mobile-menu a.active{color:var(--primary);}
+
+  /* ---------- PAGE HEAD ---------- */
+  .page-head{ padding:40px 0 18px; }
+  .page-head h1{ font-size:32px; font-weight:800; }
+  .page-head p{ color:var(--text-low); font-size:14px; margin-top:6px; }
+
+  /* ---------- SEARCH + FILTER ---------- */
+  .toolbar{ display:flex; flex-direction:column; gap:16px; margin-bottom:28px; }
+  .search-box{
+    position:relative; max-width:480px;
+  }
+  .search-box input{
+    width:100%; padding:13px 16px 13px 44px; border-radius:var(--radius);
+    background:var(--card-glass); backdrop-filter:blur(10px);
+    border:1px solid var(--line-strong); color:var(--text-hi); font-size:14px; font-family:'Inter',sans-serif;
+  }
+  .search-box input::placeholder{color:var(--text-low);}
+  .search-box input:focus{outline:none; border-color:var(--primary);}
+  .search-box i{ position:absolute; left:16px; top:50%; transform:translateY(-50%); color:var(--text-low); font-size:14px; }
+
+  .filter-row{ display:flex; gap:10px; overflow-x:auto; padding-bottom:4px; scrollbar-width:none; }
+  .filter-row::-webkit-scrollbar{display:none;}
+  .chip{
+    flex:0 0 auto; padding:9px 16px; border-radius:100px; font-size:13px; font-weight:600;
+    background:var(--card-glass); border:1px solid var(--line-strong); color:var(--text-mid);
+    cursor:pointer; white-space:nowrap; transition:background .2s, color .2s, border-color .2s;
+    display:flex; align-items:center; gap:7px;
+  }
+  .chip i{font-size:12px;}
+  .chip:hover{background:rgba(255,255,255,0.06); color:var(--text-hi);}
+  .chip.active{ background:linear-gradient(135deg, var(--primary), var(--primary-deep)); border-color:transparent; color:#fff; }
+
+  /* ---------- VIDEO GRID ---------- */
+  .result-count{ font-size:13px; color:var(--text-low); margin-bottom:16px; }
+  .video-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; padding-bottom:40px; }
+  .video-card{
+    background:var(--card-glass); backdrop-filter:blur(10px);
+    border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; transition:transform .2s, border-color .2s;
+  }
+  .video-card:hover{transform:translateY(-4px); border-color:rgba(59,130,246,0.4);}
+  .thumb{ position:relative; height:150px; background-size:cover; background-position:center; display:flex; align-items:flex-end; }
+  .thumb::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,11,26,0) 40%, rgba(7,11,26,0.9) 100%); }
+  .thumb-tag{
+    position:relative; z-index:1; margin:10px 0 10px 12px; font-size:11px; font-weight:700; padding:4px 9px;
+    border-radius:100px; background:rgba(59,130,246,0.9); color:#fff; text-transform:uppercase; letter-spacing:.03em;
+  }
+  .play-btn{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:42px; height:42px; border-radius:50%; background:rgba(255,255,255,0.16); backdrop-filter:blur(4px);
+    display:flex; align-items:center; justify-content:center; color:#fff; font-size:14px; border:1px solid rgba(255,255,255,0.3);
+  }
+  .video-body{padding:14px 16px 8px;}
+  .video-title{font-size:14.5px; font-weight:700; margin-bottom:6px;}
+  .video-meta{font-size:12px; color:var(--text-low); margin-bottom:12px;}
+  .video-actions{
+    display:flex; align-items:center; justify-content:space-between;
+    border-top:1px solid var(--line); padding:10px 16px;
+  }
+  .action-btn{
+    display:flex; align-items:center; gap:6px; background:none; border:1px solid transparent;
+    color:var(--text-low); font-size:12.5px; font-weight:600; cursor:pointer;
+    padding:6px 10px; border-radius:100px; transition:all .2s ease;
+  }
+  .action-btn i{font-size:14px; transition:transform .2s ease;}
+  .action-btn:hover{color:var(--text-hi); background:rgba(255,255,255,0.06);}
+  .action-btn.liked{ color:#fb7185; background:rgba(251,113,133,0.12); border-color:rgba(251,113,133,0.3); }
+  .action-btn.liked i{transform:scale(1.15);}
+  .action-btn.saved{ color:var(--secondary); background:rgba(14,165,233,0.12); border-color:rgba(14,165,233,0.3); }
+  .action-btn.saved i{transform:scale(1.15);}
+  .action-btn.share-btn:active{ color:var(--primary); background:rgba(59,130,246,0.12); }
+
+  .empty-state{ text-align:center; padding:60px 20px; color:var(--text-low); display:none; }
+  .empty-state i{font-size:34px; margin-bottom:12px; opacity:.5;}
+
+  /* ---------- CATEGORY COLORS FOR TAGS ---------- */
+  .tag-self{background:rgba(59,130,246,0.9);}
+  .tag-study{background:rgba(34,197,94,0.9);}
+  .tag-business{background:rgba(249,115,22,0.9);}
+  .tag-ai{background:rgba(168,85,247,0.9);}
+  .tag-money{background:rgba(234,179,8,0.9);}
+  .tag-productivity{background:rgba(14,165,233,0.9);}
+  .tag-mindset{background:rgba(236,72,153,0.9);}
+  .tag-life{background:rgba(239,68,68,0.9);}
+
+  /* ---------- MOBILE BOTTOM NAV ---------- */
+  .bottom-nav{
+    display:none; position:fixed; bottom:0; left:0; right:0; z-index:60;
+    background:rgba(7,11,26,0.85); backdrop-filter:blur(18px); border-top:1px solid var(--line);
+    justify-content:space-around; padding:8px 4px 10px;
+  }
+  .bottom-nav a{ display:flex; flex-direction:column; align-items:center; gap:4px; font-size:10.5px; color:var(--text-low); font-weight:600; }
+  .bottom-nav a i{font-size:17px;}
+  .bottom-nav a.active{color:var(--primary);}
+
+  /* ---------- FOOTER ---------- */
+  footer.site-footer{ border-top:1px solid var(--line); padding:36px 0 24px; margin-top:20px; }
+  .foot-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;}
+  .foot-brand{display:flex; align-items:center; gap:10px; font-weight:700;}
+  .foot-links{display:flex; gap:24px; list-style:none;}
+  .foot-links a{font-size:13.5px; color:var(--text-low);}
+  .foot-links a:hover{color:var(--text-hi);}
+  .foot-social{display:flex; gap:10px;}
+  .copyright{font-size:12px; color:var(--text-low); margin-top:22px; text-align:center;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:960px){
+    .video-grid{grid-template-columns:repeat(2,1fr);}
+    .nav-links, .foot-links{display:none;}
+    .hamburger{display:flex;}
+    .bottom-nav{display:flex;}
+    footer.site-footer .foot-grid{justify-content:center;}
+  }
+  @media (max-width:560px){
+    .video-grid{grid-template-columns:1fr 1fr; gap:12px;}
+    .wrap{padding:0 18px;}
+    .page-head h1{font-size:26px;}
+    .video-actions{padding:8px 10px;}
+    .action-btn{padding:6px 8px; font-size:0;}
+    .action-btn i{font-size:14px;}
+  }
+  a:focus-visible, button:focus-visible, .icon-btn:focus-visible{ outline:2px solid var(--primary); outline-offset:2px; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>My Blog</h1>
-        <p>এখানে আমার লেখা আর্টিকেলগুলো পাওয়া যাবে।</p>
+
+<header>
+  <div class="nav-inner">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <button class="icon-btn hamburger" aria-label="Menu" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
+      <a href="index.html" class="brand">
+        <span class="bot"><i class="fa-solid fa-robot"></i></span>
+        Hey Rahad
+      </a>
     </div>
-    
-    <div class="nav"> 
-        <a href="index.html">Home</a> 
-        <a href="blog.html" style="color:white">Blog</a> 
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="videos.html">Videos</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-tools">
+      <button class="icon-btn" aria-label="Toggle theme" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
     </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="videos.html">Videos</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<section class="wrap page-head">
+  <h1>Blog</h1>
+  <p>Motivation, Business, AI, Study এবং Success Stories নিয়ে প্রফেশনাল আর্টিকেল</p>
+</section>
+
+<section class="wrap">
+  <div class="toolbar">
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" placeholder="আর্টিকেল খুঁজুন...">
+    </div>
+    <div class="filter-row" id="filterRow">
+      <button class="chip active" data-cat="all"><i class="fa-solid fa-layer-group"></i> All</button>
+      <button class="chip" data-cat="motivation"><i class="fa-solid fa-fire"></i> Motivation</button>
+      <button class="chip" data-cat="business"><i class="fa-solid fa-briefcase"></i> Business</button>
+      <button class="chip" data-cat="ai"><i class="fa-solid fa-microchip"></i> AI</button>
+      <button class="chip" data-cat="study"><i class="fa-solid fa-graduation-cap"></i> Study</button>
+      <button class="chip" data-cat="success"><i class="fa-solid fa-trophy"></i> Success Stories</button>
+    </div>
+  </div>
+
+  <p class="result-count" id="resultCount">সব আর্টিকেল দেখানো হচ্ছে</p>
+  <div class="video-grid" id="videoGrid"></div>
+  <div class="empty-state" id="emptyState">
+    <i class="fa-solid fa-newspaper"></i>
+    <p>কোনো আর্টিকেল পাওয়া যায়নি</p>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="bot"><i class="fa-solid fa-robot"></i></span>
+        Hey Rahad
+      </div>
+      <ul class="foot-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="foot-social">
+        <a href="#" class="icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" class="icon-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Hey Rahad. All rights reserved.</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav">
+  <a href="index.html"><i class="fa-solid fa-house"></i>Home</a>
+  <a href="videos.html"><i class="fa-solid fa-video"></i>Videos</a>
+  <a href="blog.html" class="active"><i class="fa-solid fa-newspaper"></i>Blog</a>
+  <a href="#about"><i class="fa-solid fa-circle-info"></i>About</a>
+  <a href="#contact"><i class="fa-solid fa-envelope"></i>Contact</a>
+</nav>
+
+<script>
+  // ---- Placeholder article data (replace later with real articles) ----
+  const articles = [
+    { id:1, title:"5 Morning Habits That Change Your Life", cat:"motivation", tag:"Motivation", tagClass:"tag-mindset", excerpt:"সকালের ছোট কিছু অভ্যাস কীভাবে সারাদিনের প্রোডাক্টিভিটি ও মানসিক অবস্থা বদলে দিতে পারে।", author:"Rahad", date:"3 days ago", readTime:"4 min read", img:"https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&h=300&fit=crop" },
+    { id:2, title:"How to Start a Business With Little Money", cat:"business", tag:"Business", tagClass:"tag-business", excerpt:"অল্প পুঁজিতেও কীভাবে একটা টেকসই ব্যবসা শুরু করা যায় — বাস্তব উদাহরণসহ।", author:"Rahad", date:"5 days ago", readTime:"6 min read", img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop" },
+    { id:3, title:"AI Tools That Will Save You Hours Every Week", cat:"ai", tag:"AI", tagClass:"tag-ai", excerpt:"প্রতিদিনের কাজে ব্যবহার করার মতো কিছু কার্যকর AI টুল এবং সেগুলোর ব্যবহারবিধি।", author:"Rahad", date:"1 week ago", readTime:"5 min read", img:"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&h=300&fit=crop" },
+    { id:4, title:"The Science of Effective Studying", cat:"study", tag:"Study", tagClass:"tag-study", readTimeIcon:"", excerpt:"মুখস্থ না করে কীভাবে সত্যিকারের বুঝে পড়াশোনা করবেন — গবেষণাভিত্তিক কিছু টেকনিক।", author:"Rahad", date:"2 weeks ago", readTime:"7 min read", img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop" },
+    { id:5, title:"From Zero to 10K Subscribers: A Success Story", cat:"success", tag:"Success Stories", tagClass:"tag-self", excerpt:"একজন সাধারণ শিক্ষার্থীর ইউটিউব যাত্রার গল্প — কী কী ভুল থেকে তিনি শিখেছেন।", author:"Rahad", date:"3 weeks ago", readTime:"8 min read", img:"https://images.unsplash.com/photo-1553877522-43269d4ea984?w=500&h=300&fit=crop" },
+    { id:6, title:"Why Discipline Beats Motivation", cat:"motivation", tag:"Motivation", tagClass:"tag-mindset", excerpt:"মোটিভেশন সাময়িক, কিন্তু ডিসিপ্লিন দীর্ঘমেয়াদী ফলাফল দেয় — কেন এবং কীভাবে গড়বেন।", author:"Rahad", date:"1 month ago", readTime:"5 min read", img:"https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&h=300&fit=crop" }
+  ];
+
+  const grid = document.getElementById('videoGrid');
+  const emptyState = document.getElementById('emptyState');
+  const resultCount = document.getElementById('resultCount');
+  const searchInput = document.getElementById('searchInput');
+  const filterRow = document.getElementById('filterRow');
+  let activeCat = 'all';
+
+  function render(){
+    const q = searchInput.value.trim().toLowerCase();
+    const filtered = articles.filter(a => {
+      const matchCat = activeCat === 'all' || a.cat === activeCat;
+      const matchQ = a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q);
+      return matchCat && matchQ;
+    });
+
+    grid.innerHTML = '';
+    filtered.forEach(a => {
+      const card = document.createElement('a');
+      card.href = `blog-post.html?id=${a.id}`;
+      card.className = 'video-card';
+      card.style.display = 'block';
+      card.innerHTML = `
+        <div class="thumb" style="background-image:url('${a.img}')">
+          <span class="thumb-tag ${a.tagClass}">${a.tag}</span>
+        </div>
+        <div class="video-body">
+          <div class="video-title">${a.title}</div>
+          <p style="font-size:12.5px; color:var(--text-low); margin-bottom:10px; line-height:1.5;">${a.excerpt}</p>
+          <div class="video-meta">${a.author} • ${a.date} • ${a.readTime}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    resultCount.textContent = filtered.length ? `${filtered.length}টি আর্টিকেল পাওয়া গেছে` : '';
+    emptyState.style.display = filtered.length ? 'none' : 'block';
+    grid.style.display = filtered.length ? 'grid' : 'none';
+  }
+
+  filterRow.addEventListener('click', (e) => {
+    const chip = e.target.closest('.chip');
+    if (!chip) return;
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeCat = chip.dataset.cat;
+    render();
+  });
+
+  searchInput.addEventListener('input', render);
+
+  // Pre-select category from URL, e.g. blog.html?cat=business
+  const params = new URLSearchParams(window.location.search);
+  const catParam = params.get('cat');
+  if (catParam) {
+    const targetChip = document.querySelector(`.chip[data-cat="${catParam}"]`);
+    if (targetChip) {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      targetChip.classList.add('active');
+      activeCat = catParam;
+    }
+  }
+  render();
+
+  // Mobile menu + theme toggle (shared behavior with home page)
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  const toggle = document.getElementById('themeToggle');
+  let isLight = false;
+  toggle.addEventListener('click', () => {
+    isLight = !isLight;
+    document.documentElement.style.filter = isLight ? 'invert(1) hue-rotate(180deg)' : 'none';
+    toggle.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+  });
+</script>
+
 </body>
 </html>
